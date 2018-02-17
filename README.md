@@ -2,6 +2,7 @@
 Diff API to compare two blocks of data and evaluate the differences between them.
 
 The Diff API is available online at endpoint http://diff.azurewebsites.net/
+
 The Swagger documentation and UI to make some tests are available at http://diff.azurewebsites.net/swagger
 
 In order to execute a Diff analisys, are necessary two calls to the endpoints in order to provide the left and right data to be diff-ed, as shown below.
