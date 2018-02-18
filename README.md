@@ -1,12 +1,11 @@
 # Diff API
-This API  receive two blocks of binary data, enconded in a base 64 string, and compare the differences bewteen them. One block is named as "left" and the other as "right". After the two blocks are known by the API, the analysis of the diferences could be executed.
 
+This API  receive two blocks of binary data, enconded in a base 64 string, and compare the differences bewteen them. One block is named as "left" and the other as "right". After the two blocks are known by the API, the analysis of the diferences could be executed.
 
 The results of the analisys happens accordingly to below conditions:
 - In case of *"left"* and *"right"* data have the same number of bytes, the analisys will be executed. The status reruned will be *"**DifferencesFound**"*, and a list with the *offset* (where the difference starts) and the *lenght* (how long is the difference in that block) will be returned also;
 - If *"left"* and *"right"* data are equals (same size and sequence), the status *"**DifferencesNotFound**"* will be returned;
 - In case of *"left"* and *"right"* data don't be of same size, the analisys will not proceed and the status *"**BlocksAreNotOfSameSize**"* will be returned.
-
 
 The Diff API is available online at endpoint http://diff.azurewebsites.net/
 
@@ -128,3 +127,24 @@ Data being sent: 123456789
         "Status": "BlocksAreNotOfSameSize",
         "DiffBlocks": []
     }
+
+## Possible exceptions
+
+List of possible exceptions per endpoint.
+
+`POST /v1/diff/{id}/left `
+
+`POST /v1/diff/{id}/right`
+
+| HTTP Status Code  |  Reason |
+| :------------ | :------------ |
+|400| The parameter {data} cannot be null.   |
+|400| The parameter {data} is not a valid base 64 string. |
+|500| Internal Server Error   |
+
+`GET /v1/diff/{id}`
+
+| HTTP Status Code  |  Reason |
+| :------------ | :------------ |
+|404| No data was found for provided {id}   |
+|500| Internal Server Error   |
