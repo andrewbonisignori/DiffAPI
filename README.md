@@ -26,7 +26,7 @@ In order to execute a Diff analisys, are necessary two calls to the endpoints in
     GET /v1/diff/1
     Host: diff.azurewebsites.net
 
-### Sample result from above analisys.
+### Sample result from above analysis.
 
     {
         "Status": "DifferencesFound",
