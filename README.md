@@ -1,5 +1,16 @@
 # Diff API
 
+List of contents
+- Summary
+- Sample analysis execution for
+  - *"DifferencesFound"*
+  -  *"DifferencesNotFound"*
+  - *"BlocksAreNotOfSameSize*
+- Parameters descriptions
+- Possible exceptions
+
+## Summary
+
 This API  receive two blocks of binary data, enconded in a base 64 string, and compare the differences bewteen them. One block is named as "left" and the other as "right". After the two blocks are known by the API, the analysis of the diferences could be executed.
 
 The results of the analisys happens accordingly to below conditions:
