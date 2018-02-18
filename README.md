@@ -3,9 +3,9 @@
 This API  receive two blocks of binary data, enconded in a base 64 string, and compare the differences bewteen them. One block is named as "left" and the other as "right". After the two blocks are known by the API, the analysis of the diferences could be executed.
 
 The results of the analisys happens accordingly to below conditions:
-- In case of *"left"* and *"right"* data have the same number of bytes, the analisys will be executed. The status reruned will be *"**DifferencesFound**"*, and a list with the *offset* (where the difference starts) and the *lenght* (how long is the difference in that block) will be returned also;
+- In case of *"left"* and *"right"* data have the same number of bytes, the analisys will be executed. If some difference is found, the status reruned will be *"**DifferencesFound**"*, and a list with the *offset* (where the difference starts) and the *lenght* (how long is the difference in that block) will be returned also;
 - If *"left"* and *"right"* data are equals (same size and sequence), the status *"**DifferencesNotFound**"* will be returned;
-- In case of *"left"* and *"right"* data don't be of same size, the analisys will not proceed and the status *"**BlocksAreNotOfSameSize**"* will be returned.
+- In case of *"left"* and *"right"* data don't be of the same size, the analisys will not proceed and the status *"**BlocksAreNotOfSameSize**"* will be returned.
 
 The Diff API is available online at endpoint http://diff.azurewebsites.net/
 
@@ -15,7 +15,7 @@ The UI to execute some tests are available at http://diff.azurewebsites.net/swag
 
 Below, two blocks of data encoded in a base 64 string will be sent to analysis.
 The *"left"*  data will be *123456789* and the right data will be *12#456###*.
-Since the blocks are of the same size, the analisys will be exeuted. We can observe two differences between these blocks, the first at index 2 with only one different character  and the second at index 6 with three differentes characters.
+Since the blocks are of the same size, the analisys will be exeuted. We can observe two differences between these blocks, the first at index 2 with only one different character and the second at index 6 with three differentes characters.
 
 In order to execute the analisys we will need three calls to API, as show below.
 
@@ -60,7 +60,7 @@ Data being sent: 12#456###
 
 Below, two blocks of data encoded in a base 64 string will be sent to analysis.
 The *"left"*  data will be *123456789* and the right data will be *123456789*.
-Since the blocks are of the same size,  the analisys for differents blocks will not be exeuted, but as they have exactly the same sequence of bytes, the retuned status will be *"DifferencesNotFound"*.
+Since the blocks are of the same size, the analisys will be exeuted, but as they have exactly the same sequence of bytes, the retuned status will be *"DifferencesNotFound"*.
 
 In order to execute the analisys we will need three calls to API, as show below.
 
