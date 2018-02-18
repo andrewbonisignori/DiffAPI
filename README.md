@@ -1,6 +1,6 @@
 # Diff API
 
-List of contents
+### List of contents
 - [Summary](//github.com/andrewbonisignori/DiffAPI/blob/master/README.md#summary "Summary")
 - Sample analysis execution for
   - [*DifferencesFound*](//github.com/andrewbonisignori/DiffAPI/blob/master/README.md#sample-analysis-execution-for-differencesfound "*DifferencesFound*")
