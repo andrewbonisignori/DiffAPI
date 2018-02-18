@@ -19,7 +19,7 @@ Since the blocks are of the same size, the analisys will be exeuted. We can obse
 
 In order to execute the analisys we will need three call to API, as show below.
 
-### First Call - Update*"left"* data using {id} 1
+### First Call - Update *"left"*  data using {id} 1
 Data being sent: 123456789
 
     POST /v1/diff/1/left
@@ -27,7 +27,7 @@ Data being sent: 123456789
     Content-Type: application/json
     "MTIzNDU2Nzg5"
 
-### Second Call - Update*"right"* data using {id} 1
+### Second Call - Update *"right"*  data using {id} 1
 Data being sent: 12#456###
 
     POST /v1/diff/1/right
