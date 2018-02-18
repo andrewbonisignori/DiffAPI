@@ -3,7 +3,6 @@ using Diff.Domain;
 using Diff.Domain.Repository;
 using Diff.Filters;
 using Microsoft.Web.Http;
-using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -101,8 +100,8 @@ namespace Diff.Controllers
         /// If the <paramref name="id"/> was not found, returns HTTP not found (404).
         /// In case of an unexpected error, returns a Internal server error (500).
         /// </returns>
-        /// <response code="200">Data found.</response>
-        /// <response code="400">No data was found for provided <paramref name="id"/>.</response>
+        /// <response code="200">Data was found.</response>
+        /// <response code="404">No data was found for provided <paramref name="id"/>.</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpGet]
         [Route("{id:int}")]
