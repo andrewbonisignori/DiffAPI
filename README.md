@@ -12,7 +12,7 @@ The Diff API is available online at http://diff.azurewebsites.net/ and the the U
 ## Sample analysis execution for *"DifferencesFound"*
 
 Below, two blocks of data encoded in a base 64 string will be sent to analysis.
-The *"left"*  data will be *123456789* and the right data will be *12#456###*.
+The *"left"*  data will be *123456789* and the *"right"* data will be *12#456###*.
 Since the blocks are of the same size, the analisys will be exeuted. We can observe two differences between these blocks, the first at index 2 with only one different character and the second at index 6 with three differentes characters.
 
 In order to execute the analisys we will need three calls to API, as show below.
@@ -57,7 +57,7 @@ Data being sent: 12#456###
 ## Sample analysis execution for *"DifferencesNotFound"*
 
 Below, two blocks of data encoded in a base 64 string will be sent to analysis.
-The *"left"*  data will be *123456789* and the right data will be *123456789*.
+The *"left"*  data will be *123456789* and the *"right"* data will be *123456789*.
 Since the blocks are of the same size, the analisys will be exeuted, but as they have exactly the same sequence of bytes, the retuned status will be *"DifferencesNotFound"*.
 
 In order to execute the analisys we will need three calls to API, as show below.
@@ -93,7 +93,7 @@ Data being sent: 123456789
 ## Sample analysis execution for *"BlocksAreNotOfSameSize"*
 
 Below, two blocks of data encoded in a base 64 string will be sent to analysis.
-The *"left"*  data will be *123456* and the right data will be *123456789*.
+The *"left"*  data will be *123456* and the *"right"* data will be *123456789*.
 Since the blocks aren't of the same size, the analisys for differents blocks will not be exeuted and the retuned status will be *"BlocksAreNotOfSameSize"*.
 
 In order to execute the analisys we will need three calls to API, as show below.
