@@ -102,7 +102,7 @@ Since the blocks aren't of the same size, the analisys for differents blocks wil
 In order to execute the analisys we will need three calls to API, as show below.
 
 ### First Call - Update *"left"*  data using {id} 1
-Data being sent: 123456789
+Data being sent: 123456
 
     POST /v1/diff/1/left
     Host: diff.azurewebsites.net
