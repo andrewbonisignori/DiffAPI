@@ -3,15 +3,16 @@ This API  receive two blocks of binary data, enconded in a base 64 string, and c
 
 
 The results of the analisys happens accordingly to below conditions:
+- In case of *"left"* and *"right"* data have the same number of bytes, the analisys will be executed. The status reruned will be *"DifferencesFound"*, and a list with the *offset* (where the difference starts) and the *lenght* (how long is the difference in that block) will be returned also;
 - If *"left"* and *"right"* data are equals (same size and sequence), the status *"DifferencesNotFound"* will be returned;
-- In case of *"left"* and *"right"* data don't be of same size, the analisys will not proceed and the status *"BlocksAreNotOfSameSize"* will be returned;
-- In case of *"left"* and *"right"* data have the same number of bytes, the analisys will be executed. The status reruned will be *"DifferencesFound"*, and a list with the *offset* (where the difference starts) and the *lenght* (how long is the difference in that block) will be returned also.
+- In case of *"left"* and *"right"* data don't be of same size, the analisys will not proceed and the status *"BlocksAreNotOfSameSize"* will be returned.
+
 
 The Diff API is available online at endpoint http://diff.azurewebsites.net/
 
 The UI to execute some tests are available at http://diff.azurewebsites.net/swagger
 
-## Sample analysis execution
+## Sample analysis execution for *"DifferencesFound"*
 
 Below, two blocks of data encoded in a base 64 string will be sent to analysis.
 The *"left"*  data will be *123456789* and the right data will be *12#456###*.
@@ -54,4 +55,40 @@ Data being sent: 12#456###
                 "Lenght": 3
             }
         ]
+    }
+
+## Sample analysis execution for *"DifferencesNotFound"*
+
+Below, two blocks of data encoded in a base 64 string will be sent to analysis.
+The *"left"*  data will be *123456789* and the right data will be *123456789*.
+Since the blocks are of the same size, the analisys will be exeuted, but as they have exactly the same sequence of bytes, the retuned status will be *"DifferencesNotFound"*.
+
+In order to execute the analisys we will need three calls to API, as show below.
+
+### First Call - Update *"left"*  data using {id} 1
+Data being sent: 123456789
+
+    POST /v1/diff/1/left
+    Host: diff.azurewebsites.net
+    Content-Type: application/json
+    "MTIzNDU2Nzg5"
+
+### Second Call - Update *"right"*  data using {id} 1
+Data being sent: 123456789
+
+    POST /v1/diff/1/right
+    Host: diff.azurewebsites.net
+    Content-Type: application/json
+    "MTIzNDU2Nzg5"
+
+### Third Call - Execute the analisys for {id} 1.
+
+    GET /v1/diff/1
+    Host: diff.azurewebsites.net
+
+###### Response from above analysis.
+
+    {
+        "Status": "DifferencesNotFound",
+        "DiffBlocks": []
     }
