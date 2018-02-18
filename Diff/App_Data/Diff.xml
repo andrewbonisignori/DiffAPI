@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Diff</name>
+    </assembly>
+    <members>
+        <member name="T:Diff.Controllers.DiffController">
+            <summary>
+            Reponsible for receive the blocks that are going to be diff-ed and responsible for the diff analysis itself.
+            </summary>
+        </member>
+        <member name="M:Diff.Controllers.DiffController.PostLeftDiffData(System.Int32,System.String)">
+            <summary>
+            Provide the left data that is going to be diff-ed.
+            </summary>
+            <param name="id">Identify one block that are going to be diff-ed.</param>
+            <param name="data">Base64 string to be diff-ed.</param>
+            <returns>HTTP success(200) if the data was saved successfully, otherwise HTTP bad request(400) or internal server error (500).</returns>
+            <remarks>
+            Two blocks related to same <paramref name="id"/> are expected in order to a analysis be executed, one to left and another to right side.
+            </remarks>
+            <response code="200">Data was update.</response>
+            <response code="400">The parameter <paramref name="data"/> cannot be null.</response>
+            <response code="400">The parameter <paramref name="data"/> is not a valid base 64 string.</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:Diff.Controllers.DiffController.PostRightDiffData(System.Int32,System.String)">
+            <summary>
+            Provide the right data that is going to be diff-ed.
+            </summary>
+            <param name="id">Identify one block that are going to be diff-ed.</param>
+            <param name="data">Base64 string to be diff-ed.</param>
+            <returns>HTTP success(200) if the data was saved successfully, otherwise HTTP bad request(400) or internal server error (500).</returns>
+            <remarks>
+            Two blocks related to same <paramref name="id"/> are expected in order to a analysis be executed, one to left and another to right side.
+            </remarks>
+            <response code="200">Data was update.</response>
+            <response code="400">The parameter <paramref name="data"/> cannot be null.</response>
+            <response code="400">The parameter <paramref name="data"/> is not a valid base 64 string.</response>
+            <response code="500">Internal Server Error.</response>
+        </member>
+        <member name="M:Diff.Controllers.DiffController.SavePostDiffData(System.Int32,System.String,Diff.Domain.DiffItemType)">
+            <summary>
+            Persists received data accordingly to <paramref name="diffItemType"/>.
+            </summary>
+            <param name="id">Data identity.</param>
+            <param name="data">Base 64 string data to be persisted.</param>
+            <param name="diffItemType">Define if data belongs to left or to the right.</param>
+            <returns>The HTTP status of the operation.</returns>
+        </member>
+        <member name="M:Diff.Controllers.DiffController.GetDiffData(System.Int32)">
+            <summary>
+            Execute the diff-ed analysis of the previously provided blocks (left and right).
+            </summary>
+            <param name="id">Identify one block that are going to be diff-ed.</param>
+            <returns>
+            If success, returns <see cref="T:Diff.Models.Diff.DiffResult"/> with the analisys results.
+            If the <paramref name="id"/> was not found, returns HTTP not found (404).
+            In case of an unexpected error, returns a Internal server error (500).
+            </returns>
+            <response code="200">Data found.</response>
+            <response code="400">No data was found for provided <paramref name="id"/>.</response>
+            <response code="500">Internal Server Error.</response>
+        </member>
+        <member name="T:Diff.Filters.ValidateBase64ParameterAttribute">
+            <summary>
+            Executes the validation needed in order to check if a <c>string</c> is a valid base 64 string.
+            </summary>
+        </member>
+        <member name="M:Diff.Filters.ValidateBase64ParameterAttribute.#ctor(System.String)">
+            <summary>
+            Initialize a new instance of <see cref="T:Diff.Filters.ValidateBase64ParameterAttribute"/>.
+            </summary>
+            <param name="parameterName">Parameter name to be checked.</param>
+        </member>
+        <member name="M:Diff.Filters.ValidateBase64ParameterAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Validate the string before the execution of the action.
+            </summary>
+            <param name="actionContext">The action context.</param>
+        </member>
+        <member name="T:Diff.Ioc.DependencyRegistrations">
+            <summary>
+            Register dependencies that are going to be used along application.
+            </summary>
+        </member>
+        <member name="M:Diff.Ioc.DependencyRegistrations.GetDependencyResolver">
+            <summary>
+            Generate the global dependecy resolver that are going to be used along application.
+            </summary>
+            <returns>The dependency resolver.</returns>
+        </member>
+        <member name="T:Diff.IoC.UnityResolver">
+            <summary>
+            Resolve dependencies along application.
+            </summary>
+            <remarks>
+            This class is based in some samples of Unity, since the goal here
+            is just enable dependecy injection.
+            </remarks>
+        </member>
+        <member name="T:Diff.Mapper.AutoMapperConfig">
+            <summary>
+            AutoMapper configurations to be used along entire application.
+            Contains mapping for current assembly and for dependent assemblies.
+            Each assembly should have their specific <see cref="T:AutoMapper.Profile"/> loaded.
+            </summary>
+        </member>
+        <member name="T:Diff.Mapper.DiffMapperProfile">
+            <summary>
+            AutoMapper configurations corresponding to current assembly.
+            This <see cref="T:AutoMapper.Profile"/> should be loaded into <see cref="T:Diff.Mapper.AutoMapperConfig"/> class.
+            </summary>
+        </member>
+        <member name="M:Diff.Mapper.DiffMapperProfile.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:Diff.Mapper.DiffMapperProfile"/>.
+            </summary>
+        </member>
+        <member name="T:Diff.Models.Diff.DiffBlock">
+            <summary>
+            Represents one difference found while comparing blocks of data.
+            </summary>
+        </member>
+        <member name="P:Diff.Models.Diff.DiffBlock.Offset">
+            <summary>
+            Position of the difference in array.
+            It is a non zero based, so the first position is 1.
+            </summary>
+        </member>
+        <member name="P:Diff.Models.Diff.DiffBlock.Lenght">
+            <summary>
+            Length of the difference.
+            </summary>
+        </member>
+        <member name="T:Diff.Models.Diff.DiffResult">
+            <summary>
+            Represents the status that results from the analysis between
+            two bloks (left and right) and the differences found, if any.
+            </summary>
+        </member>
+        <member name="P:Diff.Models.Diff.DiffResult.Status">
+            <summary>
+            Status that results from the analysis between
+            two bloks (left and right).
+            </summary>
+        </member>
+        <member name="P:Diff.Models.Diff.DiffResult.DiffBlocks">
+            <summary>
+            Differences found in analysis, if any.
+            </summary>
+        </member>
+    </members>
+</doc>
