@@ -19,7 +19,7 @@
             <remarks>
             Two blocks related to same <paramref name="id"/> are expected in order to a analysis be executed, one to left and another to right side.
             </remarks>
-            <response code="200">Data was update.</response>
+            <response code="200">Data was updated.</response>
             <response code="400">The parameter <paramref name="data"/> cannot be null.</response>
             <response code="400">The parameter <paramref name="data"/> is not a valid base 64 string.</response>
             <response code="500">Internal Server Error</response>
@@ -34,7 +34,7 @@
             <remarks>
             Two blocks related to same <paramref name="id"/> are expected in order to a analysis be executed, one to left and another to right side.
             </remarks>
-            <response code="200">Data was update.</response>
+            <response code="200">Data was updated.</response>
             <response code="400">The parameter <paramref name="data"/> cannot be null.</response>
             <response code="400">The parameter <paramref name="data"/> is not a valid base 64 string.</response>
             <response code="500">Internal Server Error.</response>
@@ -125,7 +125,7 @@
         <member name="P:Diff.Models.Diff.DiffBlock.Offset">
             <summary>
             Position of the difference in array.
-            It is a non zero based, so the first position is 1.
+            It is a zero based, so the first position is 0.
             </summary>
         </member>
         <member name="P:Diff.Models.Diff.DiffBlock.Lenght">

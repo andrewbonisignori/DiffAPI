@@ -80,7 +80,7 @@ namespace Diff.Domain
                     {
                         currentDiff = new DiffBlock
                         {
-                            Offset = i + 1
+                            Offset = i
                         };
                     }
                     currentDiff.Lenght++;

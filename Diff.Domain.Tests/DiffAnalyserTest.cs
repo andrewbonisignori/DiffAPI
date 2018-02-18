@@ -96,7 +96,7 @@ namespace Diff.Domain.Tests
             var leftBlock = new byte[] { 0, 0, 0, 4, 5 };
             var rightBlock = new byte[] { 1, 2, 3, 4, 5 };
 
-            var expectedDiffBlock = new DiffBlock(1, 3);
+            var expectedDiffBlock = new DiffBlock(0, 3);
 
             // Act
             var result = _diffAnalyser.Analyse(leftBlock, rightBlock);
@@ -112,7 +112,7 @@ namespace Diff.Domain.Tests
             var leftBlock = new byte[] { 1, 2, 3, 4, 5 };
             var rightBlock = new byte[] { 0, 0, 0, 4, 5 };
 
-            var expectedDiffBlock = new DiffBlock(1, 3);
+            var expectedDiffBlock = new DiffBlock(0, 3);
             // Act
             var result = _diffAnalyser.Analyse(leftBlock, rightBlock);
 
@@ -127,7 +127,7 @@ namespace Diff.Domain.Tests
             var leftBlock = new byte[] { 1, 2, 0, 0, 0 };
             var rightBlock = new byte[] { 1, 2, 3, 4, 5 };
 
-            var expectedDiffBlock = new DiffBlock(3, 3);
+            var expectedDiffBlock = new DiffBlock(2, 3);
 
             // Act
             var result = _diffAnalyser.Analyse(leftBlock, rightBlock);
@@ -143,7 +143,7 @@ namespace Diff.Domain.Tests
             var leftBlock = new byte[] { 1, 2, 3, 4, 5 };
             var rightBlock = new byte[] { 1, 2, 0, 0, 0 };
 
-            var expectedDiffBlock = new DiffBlock(3, 3);
+            var expectedDiffBlock = new DiffBlock(2, 3);
 
             // Act
             var result = _diffAnalyser.Analyse(leftBlock, rightBlock);
@@ -159,7 +159,7 @@ namespace Diff.Domain.Tests
             var leftBlock = new byte[] { 1, 2, 0, 4, 5 };
             var rightBlock = new byte[] { 1, 2, 3, 4, 5 };
 
-            var expectedDiffBlock = new DiffBlock(3, 1);
+            var expectedDiffBlock = new DiffBlock(2, 1);
 
             // Act
             var result = _diffAnalyser.Analyse(leftBlock, rightBlock);
@@ -175,7 +175,7 @@ namespace Diff.Domain.Tests
             var leftBlock = new byte[] { 1, 2, 3, 4, 5 };
             var rightBlock = new byte[] { 1, 2, 0, 4, 5 };
 
-            var expectedDiffBlock = new DiffBlock(3, 1);
+            var expectedDiffBlock = new DiffBlock(2, 1);
 
             // Act
             var result = _diffAnalyser.Analyse(leftBlock, rightBlock);
@@ -191,7 +191,7 @@ namespace Diff.Domain.Tests
             var leftBlock = new byte[] { 0, 0, 0, 0, 0 };
             var rightBlock = new byte[] { 1, 2, 3, 4, 5 };
 
-            var expectedDiffBlock = new DiffBlock(1, 5);
+            var expectedDiffBlock = new DiffBlock(0, 5);
 
             // Act
             var result = _diffAnalyser.Analyse(leftBlock, rightBlock);
@@ -207,7 +207,7 @@ namespace Diff.Domain.Tests
             var leftBlock = new byte[] { 1, 2, 3, 4, 5 };
             var rightBlock = new byte[] { 0, 0, 0, 0, 0 };
 
-            var expectedDiffBlock = new DiffBlock(1, 5);
+            var expectedDiffBlock = new DiffBlock(0, 5);
             
             // Act
             var result = _diffAnalyser.Analyse(leftBlock, rightBlock);
@@ -225,8 +225,8 @@ namespace Diff.Domain.Tests
 
             DiffBlock[] expectedDiffBlocks =
             {
-                new DiffBlock(1, 2),
-                new DiffBlock(4, 2)
+                new DiffBlock(0, 2),
+                new DiffBlock(3, 2)
             };
 
             // Act
@@ -245,8 +245,8 @@ namespace Diff.Domain.Tests
 
             DiffBlock[] expectedDiffBlocks =
             {
-                new DiffBlock(2, 1),
-                new DiffBlock(4, 1)
+                new DiffBlock(1, 1),
+                new DiffBlock(3, 1)
             };
 
             // Act
@@ -265,8 +265,8 @@ namespace Diff.Domain.Tests
 
             DiffBlock[] expectedDiffBlocks =
             {
-                new DiffBlock(1, 2),
-                new DiffBlock(4, 2)
+                new DiffBlock(0, 2),
+                new DiffBlock(3, 2)
             };
 
             // Act

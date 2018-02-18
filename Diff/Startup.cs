@@ -31,7 +31,7 @@ namespace Diff
             config
                 .EnableSwagger(c =>
                 {
-                    c.SingleApiVersion("v1", "Diff API");
+                    c.SingleApiVersion("v1", "Diff API - Andrew Signori");
                     c.IncludeXmlComments($"{System.AppDomain.CurrentDomain.BaseDirectory}\\App_Data\\Diff.XML");
                 })
                 .EnableSwaggerUi(c => c.DocExpansion(DocExpansion.List));

@@ -7,7 +7,7 @@
     {
         /// <summary>
         /// Position of the difference in array.
-        /// It is a non zero based, so the first position is 1.
+        /// It is a zero based, so the first position is 0.
         /// </summary>
         public int Offset { get; set; }
         /// <summary>

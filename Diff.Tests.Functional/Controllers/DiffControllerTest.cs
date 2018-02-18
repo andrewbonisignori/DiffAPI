@@ -146,7 +146,7 @@ namespace Diff.Tests.Functional.Controllers
             // Arrange
             var leftBlock = new byte[] { 0, 0, 3, 4, 5 };
             var rightBlock = new byte[] { 1, 2, 3, 4, 5 };
-            var expectedDiffBlocks = new ClientSideDiffBlock { Offset = 1, Lenght = 2 };
+            var expectedDiffBlocks = new ClientSideDiffBlock { Offset = 0, Lenght = 2 };
 
             // Act
             ClientSideDiffResult diffResultValue = await GetDiffAnalysisResponseWithSuccess(leftBlock, rightBlock);
@@ -161,7 +161,7 @@ namespace Diff.Tests.Functional.Controllers
             // Arrange
             var leftBlock = new byte[] { 1, 2, 3, 4, 5 };
             var rightBlock = new byte[] { 1, 2, 3, 0, 0 };
-            var expectedDiffBlocks = new ClientSideDiffBlock { Offset = 4, Lenght = 2 };
+            var expectedDiffBlocks = new ClientSideDiffBlock { Offset = 3, Lenght = 2 };
 
             // Act
             ClientSideDiffResult diffResultValue = await GetDiffAnalysisResponseWithSuccess(leftBlock, rightBlock);
@@ -176,7 +176,7 @@ namespace Diff.Tests.Functional.Controllers
             // Arrange
             var leftBlock = new byte[] { 1, 2, 0, 4, 5 };
             var rightBlock = new byte[] { 1, 2, 3, 4, 5 };
-            var expectedDiffBlocks = new ClientSideDiffBlock { Offset = 3, Lenght = 1 };
+            var expectedDiffBlocks = new ClientSideDiffBlock { Offset = 2, Lenght = 1 };
 
             // Act
             ClientSideDiffResult diffResultValue = await GetDiffAnalysisResponseWithSuccess(leftBlock, rightBlock);
@@ -194,8 +194,8 @@ namespace Diff.Tests.Functional.Controllers
 
             ClientSideDiffBlock[] expectedDiffBlocks =
             {
-                new ClientSideDiffBlock { Offset = 1, Lenght = 2 },
-                new ClientSideDiffBlock { Offset = 4, Lenght = 2 }
+                new ClientSideDiffBlock { Offset = 0, Lenght = 2 },
+                new ClientSideDiffBlock { Offset = 3, Lenght = 2 }
             };
 
             // Act
