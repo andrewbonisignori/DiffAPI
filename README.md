@@ -3,13 +3,11 @@
 This API  receive two blocks of binary data, enconded in a base 64 string, and compare the differences bewteen them. One block is named as "left" and the other as "right". After the two blocks are known by the API, the analysis of the diferences could be executed.
 
 The results of the analisys happens accordingly to below conditions:
-- In case of *"left"* and *"right"* data have the same number of bytes, the analisys will be executed. If some difference is found, the status reruned will be *"**DifferencesFound**"*, and a list with the *offset* (where the difference starts) and the *lenght* (how long is the difference in that block) will be returned also;
+- In case of *"left"* and *"right"* data have the same number of bytes, the analisys will be executed. If some difference is found, the status returned will be *"**DifferencesFound**"*, and a list with the *offset* (where the difference starts) and the *lenght* (how long is the difference in that block) will be returned also;
 - If *"left"* and *"right"* data are equals (same size and sequence), the status *"**DifferencesNotFound**"* will be returned;
 - In case of *"left"* and *"right"* data don't be of the same size, the analisys will not proceed and the status *"**BlocksAreNotOfSameSize**"* will be returned.
 
-The Diff API is available online at endpoint http://diff.azurewebsites.net/
-
-The UI to execute some tests are available at http://diff.azurewebsites.net/swagger
+The Diff API is available online at http://diff.azurewebsites.net/ and the the UI to execute some tests is available at http://diff.azurewebsites.net/swagger
 
 ## Sample analysis execution for *"DifferencesFound"*
 
