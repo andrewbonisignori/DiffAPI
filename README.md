@@ -15,9 +15,9 @@ The UI to execute some tests are available at http://diff.azurewebsites.net/swag
 
 Below, two blocks of data encoded in a base 64 string will be sent to analysis.
 The *"left"*  data will be *123456789* and the right data will be *12#456###*.
-Since the blocks are of the same size, the analisys will be exeuted. We can observe two differences between these blocks, the first at index 2 with only one character different and the second one at index 6 with three characters differentes.
+Since the blocks are of the same size, the analisys will be exeuted. We can observe two differences between these blocks, the first at index 2 with only one different character  and the second at index 6 with three differentes characters.
 
-In order to execute the analisys we will need three call to API, as show below.
+In order to execute the analisys we will need three calls to API, as show below.
 
 ### First Call - Update *"left"*  data using {id} 1
 Data being sent: 123456789
