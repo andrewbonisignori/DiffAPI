@@ -58,7 +58,7 @@ Data being sent: 12#456###
 
 Below, two blocks of data encoded in a base 64 string will be sent to analysis.
 The *"left"*  data will be *123456789* and the *"right"* data will be *123456789*.
-Since the blocks are of the same size, the analisys will be exeuted, but as they have exactly the same sequence of bytes, the retuned status will be *"DifferencesNotFound"*.
+Since the blocks are of the same size, the analisys will be executed, but as they have exactly the same sequence of bytes, the retuned status will be *"DifferencesNotFound"*.
 
 In order to execute the analisys we will need three calls to API, as show below.
 
