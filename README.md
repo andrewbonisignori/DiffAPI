@@ -137,14 +137,14 @@ List of parameters per endpoint.
 `POST /v1/diff/{id}/right`
 
 | Parameter  | Sample Value | Description | Parameter Type | Data Type |
-| :------------ | :------------ | :------------ | :------------ | :------------ | :------------ |
+| :------------ | :------------ | :------------ | :------------ | :------------ |
 | Id | 1 | Identify one block that are going to be diff-ed. | path | integer |
 | data | "MTIzNDU2Nzg5" | Base64 string to be diff-ed. | body | string |
 
 `GET /v1/diff/{id}`
 
 | Parameter  | Sample Value | Description | Parameter Type | Data Type |
-| :------------ | :------------ | :------------ | :------------ | :------------ | :------------ |
+| :------------ | :------------ | :------------ | :------------ | :------------ |
 | Id | 1 | Identify one block that are going to be diff-ed. | path | integer |
 
 ## Possible exceptions
@@ -157,7 +157,7 @@ List of possible exceptions per endpoint.
 
 | HTTP Status Code  |  Reason |
 | :------------ | :------------ |
-|400| The parameter {data} cannot be null.   |
+|400| The parameter {data} cannot be null. |
 |400| The parameter {data} is not a valid base 64 string. |
 |500| Internal Server Error   |
 
