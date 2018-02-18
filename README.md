@@ -3,11 +3,11 @@
 List of contents
 - [Summary](//github.com/andrewbonisignori/DiffAPI/blob/master/README.md#summary "Summary")
 - Sample analysis execution for
-  - *"DifferencesFound"*
-  -  *"DifferencesNotFound"*
-  - *"BlocksAreNotOfSameSize*
-- Parameters descriptions
-- Possible exceptions
+  - [*DifferencesFound*](//github.com/andrewbonisignori/DiffAPI/blob/master/README.md#sample-analysis-execution-for-differencesfound "*DifferencesFound*")
+  - [*DifferencesNotFound*](//github.com/andrewbonisignori/DiffAPI/blob/master/README.md#sample-analysis-execution-for-differencesnotfound "*DifferencesNotFound*")
+  - [*BlocksAreNotOfSameSize*](//github.com/andrewbonisignori/DiffAPI/blob/master/README.md#sample-analysis-execution-for-blocksarenotofsamesize "*BlocksAreNotOfSameSize*")
+- [Parameters descriptions](//github.com/andrewbonisignori/DiffAPI/blob/master/README.md#parameters-descriptions "Parameters descriptions")
+- [Possible exceptions](//github.com/andrewbonisignori/DiffAPI/blob/master/README.md#possible-exceptions "Possible exceptions")
 
 ## Summary
 
