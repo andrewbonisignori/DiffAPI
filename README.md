@@ -13,7 +13,7 @@ The Diff API is available online at http://diff.azurewebsites.net/ and the the U
 
 Below, two blocks of data encoded in a base 64 string will be sent to analysis.
 The *"left"*  data will be *123456789* and the *"right"* data will be *12#456###*.
-Since the blocks are of the same size, the analisys will be exeuted. We can observe two differences between these blocks, the first at index 2 with only one different character and the second at index 6 with three differentes characters.
+Since the blocks are of the same size, the analisys will be executed. We can observe two differences between these blocks, the first at index 2 with only one different character and the second at index 6 with three differentes characters.
 
 In order to execute the analisys we will need three calls to API, as show below.
 
